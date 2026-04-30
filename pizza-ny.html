@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Пицца в стиле нью йорк</title>
+    <title>Пицца в стиле Нью-Йорк</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -43,60 +43,62 @@
             margin: 10px 0;
             padding-left: 25px;
         }
+
+        /* Новые стили для группы ингредиентов */
+        .ingredient-group {
+            margin-left: 20px;         /* сдвиг вправо */
+            font-size: 0.95rem;        /* немного уменьшенный шрифт */
+            margin-bottom: 20px;
+            background-color: #fff8e7; /* лёгкий фон, чтобы выделить группу */
+            padding: 10px 15px;
+            border-radius: 8px;
+            border-left: 4px solid #f39c12; /* оранжевая полоса слева */
+        }
+        .ingredient-group h3 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            color: #e67e22;
+            font-size: 1.1rem;
+        }
+        .ingredient-group ul {
+            margin: 0;
+            padding-left: 20px;
+        }
     </style>
 </head>
-    .ingredient-group {
-    margin-left: 20px;         /* сдвиг вправо */
-    font-size: 0.95rem;       /* немного уменьшенный шрифт */
-    margin-bottom: 20px;
-    background-color: #fff8e7; /* лёгкий фон, чтобы выделить группу */
-    padding: 10px 15px;
-    border-radius: 8px;
-    border-left: 4px solid #f39c12; /* оранжевая полоса слева */
-}
-.ingredient-group h3 {
-    margin-top: 0;
-    margin-bottom: 8px;
-    color: #e67e22;
-    font-size: 1.1rem;
-}
-.ingredient-group ul {
-    margin: 0;
-    padding-left: 20px;
-}
 <body>
 
     <a href="index.html" class="back-link">← Назад ко всем рецептам</a>
 
-    <h1>🍕 Пицца в стиле нью йорк</h1>
-    <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=800" alt="Пицца Маргарита">
+    <h1>🍕 Пицца в стиле Нью-Йорк</h1>
+    <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=800" alt="Пицца Нью-Йорк">
 
     <div class="ingredients">
-    <h2>Ингредиенты</h2>
+        <h2>Ингредиенты</h2>
 
-    <!-- Группа: тесто -->
-    <div class="ingredient-group">
-        <h3>Для теста</h3>
+        <!-- Группа: тесто -->
+        <div class="ingredient-group">
+            <h3>Для теста</h3>
+            <ul>
+                <li>Мука (желательно для пиццы, тип 00) — 953 г</li>
+                <li>Вода холодная — 591 г (62%)</li>
+                <li>Соль — 24 г</li>
+                <li>Сахар — 10 г</li>
+                <li>Масло (добавлять в конце) — 19 г</li>
+                <li>Свежие дрожжи — 4 г</li>
+            </ul>
+        </div>
+
+        <!-- Остальные ингредиенты (начинка) -->
         <ul>
-            <li>Мука (желательно для пиццы, тип 00) — 953 г</li>
-            <li>Вода холодная — 591 г (62%)</li>
-            <li>Соль — 24 г</li>
-            <li>Сахар — 10 г</li>
-            <li>Масло (добавлять в конце) — 19 г</li>
-            <li>Свежие дрожжи — 4 г</li>
+            <li>Томатный соус — 4 ст. ложки</li>
+            <li>Моцарелла — 150 г</li>
+            <li>Помидоры черри — 6–8 шт.</li>
+            <li>Свежий базилик — 5–6 листиков</li>
+            <li>Оливковое масло — 1 ст. ложка</li>
+            <li>Соль, перец — по вкусу</li>
         </ul>
     </div>
-
-    <!-- Остальные ингредиенты (начинка) -->
-    <ul>
-        <li>Томатный соус — 4 ст. ложки</li>
-        <li>Моцарелла — 150 г</li>
-        <li>Помидоры черри — 6–8 шт.</li>
-        <li>Свежий базилик — 5–6 листиков</li>
-        <li>Оливковое масло — 1 ст. ложка</li>
-        <li>Соль, перец — по вкусу</li>
-    </ul>
-</div>
 
     <div class="steps">
         <h2>Приготовление</h2>
