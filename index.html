@@ -3,71 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мои кулинарные рецепты</title>
+    <title>Мои рецепты</title>
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            max-width: 800px; /* ширина страницы */
-            margin: 0 auto; /* выравнивание по центру */
-            padding: 20px;
-            background-color: #fdf6e3; /* приятный фоновый цвет */
+            background-color: #fdf6e3;
             color: #333;
+            line-height: 1.6;
         }
-        h1, h2 {
-            color: #d35400; /* оранжевый для заголовков */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
         }
-        .recipe {
-            background-color: #fff;
-            border-radius: 10px;
-            padding: 10px 20px 20px 20px;
+        h1 {
+            text-align: center;
+            color: #d35400;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+
+        /* Поле поиска */
+        .search-box {
             margin-bottom: 30px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
         }
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin: 10px 0;
+        .search-box input {
+            width: 100%;
+            max-width: 400px;
+            padding: 12px 20px;
+            font-size: 1rem;
+            border: 2px solid #f39c12;
+            border-radius: 30px;
+            outline: none;
+            transition: 0.3s;
         }
-        .note {
-            background-color: #fff3e0;
-            padding: 10px;
-            border-left: 5px solid #ff9800;
+        .search-box input:focus {
+            border-color: #d35400;
+            box-shadow: 0 0 8px rgba(211, 84, 0, 0.3);
+        }
+
+        /* Сетка карточек */
+        .recipes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        /* Карточка рецепта */
+        .recipe-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+        }
+        .recipe-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+        .recipe-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover; /* чтобы фото заполняло блок аккуратно */
+        }
+        .recipe-card .card-content {
+            padding: 15px;
+            flex-grow: 1;
+        }
+        .recipe-card h2 {
+            margin-bottom: 8px;
+            color: #d35400;
+            font-size: 1.5rem;
+        }
+        .recipe-card p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        /* Сообщение, если ничего не найдено */
+        .no-results {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #999;
+            margin-top: 40px;
+            display: none;
+        }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            color: #888;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
-    <h1>🍳 Иточка сегодня придется брать в роту.</h1>
-    <p>Привет! Я собираю здесь свои любимые проверенные рецепты.</p>
+<div class="container">
+    <h1>🍽️ Мои кулинарные рецепты</h1>
 
-    <!-- ПЕРВЫЙ РЕЦЕПТ -->
-    <div class="recipe">
-        <h2>Сырники</h2>
-        <img src="https://clck.ru/3HM3mM" alt="Сырники">
-        <!-- ^^^ СЮДА ВСТАВЬ СВОЮ ССЫЛКУ НА ФОТО, ИЛИ ЗАГРУЗИ СВОЙ ФАЙЛ В РЕПОЗИТОРИЙ -->
-        <p><strong>Ингредиенты:</strong></p>
-        <ul>
-            <li>Творог — 500 г</li>
-            <li>Яйцо — 1 шт.</li>
-            <li>Сахар — 3 ст. ложки</li>
-            <li>Мука — 4-5 ст. ложек</li>
-            <li>Ваниль, соль по вкусу</li>
-        </ul>
-        <p><strong>Как готовить:</strong></p>
-        <ol>
-            <li>Разомни творог вилкой, добавь яйцо, сахар и соль. Перемешай.</li>
-            <li>Постепенно подсыпай муку и замеси тесто. Оно должно остаться чуть липким.</li>
-            <li>Слепи колобки, приплюсни их и обваляй в муке.</li>
-            <li>Жарь на среднем огне с двух сторон до золотистой корочки.</li>
-        </ol>
-        <div class="note">💡 Чтобы сырники не расплывались, творог предварительно откинь на марлю, чтобы стекла лишняя жидкость.</div>
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Поиск рецепта...">
     </div>
 
-    <!-- СЮДА КОПИРУЙ И ВСТАВЛЯЙ БЛОК <div class="recipe">...</div> ДЛЯ НОВЫХ РЕЦЕПТОВ -->
+    <div class="recipes-grid" id="recipesGrid">
+        <!-- Карточка 1: Пицца -->
+        <a href="pizza.html" class="recipe-card" data-title="Пицца Маргарита">
+            <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400" alt="Пицца">
+            <div class="card-content">
+                <h2>Пицца Маргарита</h2>
+                <p>Классическая итальянская пицца с моцареллой и базиликом.</p>
+            </div>
+        </a>
 
-    <hr>
-    <p style="text-align: center; color: #888;">© 2025, Мой кулинарный сайт. Приятного аппетита!</p>
+        <!-- Карточка 2: Сырники -->
+        <a href="syrniki.html" class="recipe-card" data-title="Сырники">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400" alt="Сырники">
+            <div class="card-content">
+                <h2>Сырники</h2>
+                <p>Нежные творожные сырники, как в детстве.</p>
+            </div>
+        </a>
+
+        <!-- Карточка 3: Паста Карбонара -->
+        <a href="pasta.html" class="recipe-card" data-title="Паста Карбонара">
+            <img src="https://images.unsplash.com/photo-1612874742237-6526221588e3?w=400" alt="Паста">
+            <div class="card-content">
+                <h2>Паста Карбонара</h2>
+                <p>Сливочная паста с беконом и пармезаном.</p>
+            </div>
+        </a>
+
+        <!-- Здесь можешь добавлять новые карточки по такому же принципу -->
+    </div>
+
+    <div class="no-results" id="noResults">😕 Рецептов не найдено</div>
+
+    <footer>
+        © 2025, Мой кулинарный сайт. Приятного аппетита!
+    </footer>
+</div>
+
+<script>
+    // Простой поиск по названиям рецептов
+    const searchInput = document.getElementById('searchInput');
+    const recipeCards = document.querySelectorAll('.recipe-card');
+    const noResults = document.getElementById('noResults');
+
+    searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase().trim();
+        let hasVisible = false;
+
+        recipeCards.forEach(card => {
+            const title = card.getAttribute('data-title').toLowerCase();
+            if (title.includes(searchTerm)) {
+                card.style.display = '';
+                hasVisible = true;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        // Показать/скрыть сообщение "Не найдено"
+        if (!hasVisible && searchTerm !== '') {
+            noResults.style.display = 'block';
+        } else {
+            noResults.style.display = 'none';
+        }
+    });
+</script>
 
 </body>
 </html>
