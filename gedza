@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гедза(японские пельмени)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #fdf6e3;
+            color: #333;
+            line-height: 1.6;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 12px;
+            margin: 15px 0;
+        }
+        h1 {
+            color: #d35400;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #d35400;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .ingredients, .steps {
+            background: #fff;
+            border-radius: 12px;
+            padding: 15px 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+
+        /* Новые стили для группы ингредиентов */
+        .ingredient-group {
+            margin-left: 20px;         /* сдвиг вправо */
+            font-size: 0.95rem;        /* немного уменьшенный шрифт */
+            margin-bottom: 20px;
+            background-color: #fff8e7; /* лёгкий фон, чтобы выделить группу */
+            padding: 10px 15px;
+            border-radius: 8px;
+            border-left: 4px solid #f39c12; /* оранжевая полоса слева */
+        }
+        .ingredient-group h3 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            color: #e67e22;
+            font-size: 1.1rem;
+        }
+        .ingredient-group ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-link">← Назад ко всем рецептам</a>
+
+    <h1>Гедза(японские пельмени)</h1>
+    <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=800" alt="Пицца Нью-Йорк">
+
+        <div class="ingredients">
+        <h2>Ингредиенты</h2>
+
+        <!-- Группа: тесто -->
+        <div class="ingredient-group">
+            <h3>Для теста(4шара)</h3>
+            <ul>
+                <li>Мука 300г</li>
+                <li>Вода Кипяток 150-160мл (62%)</li>
+                <li>0,5 чайной ложки</li>
+                <li>Крахмал 2-3 ст ложки (присыпка)</li>
+            </ul>
+        </div>
+    </div>  <!-- ← ВОТ ЭТОТ ЗАКРЫВАЮЩИЙ ТЕГ БЫЛ ПРОПУЩЕН -->
+    
+    <div class="steps">
+        <h2>Приготовление</h2>
+        <ol>
+            <li>Разогрей духовку до 250 °C (максимум) Время готовки может отличатся пример 5-10 мин смотреть по цвету</li>
+            
+        </ol>
+    </div>
+
+    <a href="index.html" class="back-link">← Назад ко всем рецептам</a>
+
+</body>
+</html>
