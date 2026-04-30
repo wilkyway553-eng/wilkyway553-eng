@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мои кулинарные рецепты</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px; /* ширина страницы */
+            margin: 0 auto; /* выравнивание по центру */
+            padding: 20px;
+            background-color: #fdf6e3; /* приятный фоновый цвет */
+            color: #333;
+        }
+        h1, h2 {
+            color: #d35400; /* оранжевый для заголовков */
+        }
+        .recipe {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 10px 20px 20px 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        .note {
+            background-color: #fff3e0;
+            padding: 10px;
+            border-left: 5px solid #ff9800;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🍳 Бабушкины рецепты</h1>
+    <p>Привет! Я собираю здесь свои любимые проверенные рецепты.</p>
+
+    <!-- ПЕРВЫЙ РЕЦЕПТ -->
+    <div class="recipe">
+        <h2>Сырники</h2>
+        <img src="https://clck.ru/3HM3mM" alt="Сырники">
+        <!-- ^^^ СЮДА ВСТАВЬ СВОЮ ССЫЛКУ НА ФОТО, ИЛИ ЗАГРУЗИ СВОЙ ФАЙЛ В РЕПОЗИТОРИЙ -->
+        <p><strong>Ингредиенты:</strong></p>
+        <ul>
+            <li>Творог — 500 г</li>
+            <li>Яйцо — 1 шт.</li>
+            <li>Сахар — 3 ст. ложки</li>
+            <li>Мука — 4-5 ст. ложек</li>
+            <li>Ваниль, соль по вкусу</li>
+        </ul>
+        <p><strong>Как готовить:</strong></p>
+        <ol>
+            <li>Разомни творог вилкой, добавь яйцо, сахар и соль. Перемешай.</li>
+            <li>Постепенно подсыпай муку и замеси тесто. Оно должно остаться чуть липким.</li>
+            <li>Слепи колобки, приплюсни их и обваляй в муке.</li>
+            <li>Жарь на среднем огне с двух сторон до золотистой корочки.</li>
+        </ol>
+        <div class="note">💡 Чтобы сырники не расплывались, творог предварительно откинь на марлю, чтобы стекла лишняя жидкость.</div>
+    </div>
+
+    <!-- СЮДА КОПИРУЙ И ВСТАВЛЯЙ БЛОК <div class="recipe">...</div> ДЛЯ НОВЫХ РЕЦЕПТОВ -->
+
+    <hr>
+    <p style="text-align: center; color: #888;">© 2025, Мой кулинарный сайт. Приятного аппетита!</p>
+
+</body>
+</html>
