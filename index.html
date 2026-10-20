@@ -1,175 +1,327 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мои рецепты</title>
+
+    <meta name="theme-color" content="#fdf6e3">
+    <meta name="description" content="Моя коллекция домашних рецептов: пицца, гёдза и пончики.">
+
+    <title>Мои рецепты 🍽️</title>
+
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #fdf6e3;
             color: #333;
             line-height: 1.6;
+            min-height: 100vh;
         }
+
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 24px 20px;
         }
+
         h1 {
             text-align: center;
             color: #d35400;
-            margin-bottom: 20px;
-            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-size: clamp(1.8rem, 5vw, 2.7rem);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #777;
+            margin-bottom: 28px;
         }
 
         .search-box {
             margin-bottom: 30px;
             text-align: center;
         }
+
         .search-box input {
             width: 100%;
-            max-width: 400px;
-            padding: 12px 20px;
+            max-width: 450px;
+            padding: 13px 20px;
             font-size: 1rem;
             border: 2px solid #f39c12;
             border-radius: 30px;
+            background: white;
             outline: none;
             transition: 0.3s;
         }
+
         .search-box input:focus {
             border-color: #d35400;
-            box-shadow: 0 0 8px rgba(211, 84, 0, 0.3);
+            box-shadow: 0 0 8px rgba(211, 84, 0, 0.2);
         }
 
         .recipes-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 25px;
-            justify-content: center;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(min(100%, 260px), 1fr)
+            );
+            gap: 24px;
+            align-items: stretch;
         }
 
         .recipe-card {
             background: white;
-            border-radius: 12px;
+            border-radius: 14px;
             overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
             transition: transform 0.2s, box-shadow 0.2s;
             text-decoration: none;
             color: inherit;
             display: flex;
             flex-direction: column;
-            max-width: 350px;
-            justify-self: center;
+            min-width: 0;
         }
+
         .recipe-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
         }
+
+        .recipe-card:focus-visible {
+            outline: 3px solid #d35400;
+            outline-offset: 4px;
+        }
+
         .recipe-card img {
+            display: block;
             width: 100%;
-            height: 200px;
+            height: 210px;
             object-fit: cover;
+            background: #f5e8ce;
         }
-        .recipe-card .card-content {
-            padding: 15px;
+
+        .card-content {
+            padding: 18px;
             flex-grow: 1;
         }
+
         .recipe-card h2 {
             margin-bottom: 8px;
             color: #d35400;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
         }
+
         .recipe-card p {
             color: #555;
             font-size: 0.95rem;
         }
 
+        .card-label {
+            display: inline-block;
+            margin-top: 14px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            background: #fff0d5;
+            color: #a84300;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
         .no-results {
             text-align: center;
-            font-size: 1.2rem;
-            color: #999;
+            font-size: 1.1rem;
+            color: #888;
             margin-top: 40px;
+        }
+
+        .no-results[hidden] {
             display: none;
         }
 
         footer {
-            margin-top: 50px;
+            margin-top: 45px;
+            padding: 20px 0;
             text-align: center;
             color: #888;
             font-size: 0.9rem;
+            border-top: 1px solid #eadfc8;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px 14px;
+            }
+
+            .recipes-grid {
+                gap: 18px;
+            }
+
+            .recipe-card img {
+                height: 190px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition: none !important;
+            }
         }
     </style>
 </head>
+
 <body>
+    <main class="container">
 
-<div class="container">
-    <h1>🍽️ Мои кулинарные рецепты</h1>
+        <header>
+            <h1>🍽️ Мои кулинарные рецепты</h1>
+            <p class="subtitle">
+                Вкусные блюда, приготовленные своими руками ❤️
+            </p>
+        </header>
 
-    <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Поиск рецепта...">
-    </div>
+        <div class="search-box">
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="🔍 Найти рецепт..."
+                aria-label="Поиск рецептов"
+                autocomplete="off"
+            >
+        </div>
 
-    <div class="recipes-grid" id="recipesGrid">
-        <!-- Карточка 1: Пицца в стиле Нью-Йорк -->
-        <a href="pizza-ny.html" class="recipe-card" data-title="Пицца в стиле Нью-Йорк">
-            <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400" alt="Пицца Нью-Йорк">
-            <div class="card-content">
-                <h2>Пицца Нью-Йорк</h2>
-                <p>Тонкое хрустящее тесто, богатая начинка.</p>
-            </div>
-        </a>
+        <section
+            class="recipes-grid"
+            id="recipesGrid"
+            aria-label="Список рецептов"
+        >
 
-        <!-- Карточка 2: Гёдза -->
-        <a href="gedza.html" class="recipe-card" data-title="Гёдза Гедза">
-            <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?w=800" alt="Гёдза">
-            <div class="card-content">
-                <h2>Гёдза</h2>
-                <p>Японские пельмешки с хрустящей корочкой.</p>
-            </div>
-        </a>
+            <!-- Рецепт 1: Пицца -->
+            <a
+                href="pizza-ny.html"
+                class="recipe-card"
+                data-title="пицца нью-йорк нью йорк американская"
+            >
+                <img
+                    src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=600"
+                    alt="Пицца с сыром и томатным соусом"
+                    loading="lazy"
+                >
 
-        <!-- Здесь можешь добавлять новые карточки -->
-    </div>
+                <div class="card-content">
+                    <h2>🍕 Пицца Нью-Йорк</h2>
+                    <p>
+                        Тонкое тесто, аппетитная корочка,
+                        сыр и любимая начинка.
+                    </p>
+                    <span class="card-label">Основное блюдо</span>
+                </div>
+            </a>
 
-    <div class="no-results" id="noResults">😕 Рецептов не найдено</div>
+            <!-- Рецепт 2: Гёдза -->
+            <a
+                href="gedza.html"
+                class="recipe-card"
+                data-title="гёдза гедза японские пельмени пельмешки"
+            >
+                <img
+                    src="https://images.unsplash.com/photo-1563245372-f21724e3856d?w=600"
+                    alt="Азиатские пельмени"
+                    loading="lazy"
+                >
 
-    <footer>
-        © 2025, Мой кулинарный сайт. Приятного аппетита!
-    </footer>
-</div>
+                <div class="card-content">
+                    <h2>🥟 Гёдза</h2>
+                    <p>
+                        Японские пельмешки с сочной начинкой
+                        и хрустящей корочкой.
+                    </p>
+                    <span class="card-label">Азиатская кухня</span>
+                </div>
+            </a>
 
-<script>
-    const searchInput = document.getElementById('searchInput');
-    const recipeCards = document.querySelectorAll('.recipe-card');
-    const noResults = document.getElementById('noResults');
+            <!-- Рецепт 3: Домашние пончики -->
+            <a
+                href="ponchiki.html"
+                class="recipe-card"
+                data-title="пончики пончик сахарная пудра сладкое десерт фритюр"
+            >
+                <img
+                    src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600"
+                    alt="Аппетитные пончики"
+                    loading="lazy"
+                >
 
-    searchInput.addEventListener('input', function() {
-        const searchTerm = this.value.toLowerCase().trim();
-        let hasVisible = false;
+                <div class="card-content">
+                    <h2>🍩 Домашние пончики</h2>
+                    <p>
+                        Золотистые пончики во фритюре,
+                        щедро посыпанные сахарной пудрой.
+                    </p>
+                    <span class="card-label">Десерт</span>
+                </div>
+            </a>
 
-        recipeCards.forEach(card => {
-            const title = card.getAttribute('data-title').toLowerCase();
-            if (title.includes(searchTerm)) {
-                card.style.display = '';
-                hasVisible = true;
-            } else {
-                card.style.display = 'none';
-            }
+        </section>
+
+        <p class="no-results" id="noResults" hidden>
+            😕 Ничего не найдено. Попробуй другое название!
+        </p>
+
+        <footer>
+            <p>© <span id="currentYear"></span> Мои рецепты</p>
+            <p>Приготовлено с ❤️ и хорошим аппетитом!</p>
+        </footer>
+
+    </main>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const recipeCards = document.querySelectorAll('.recipe-card');
+        const noResults = document.getElementById('noResults');
+        const currentYear = document.getElementById('currentYear');
+
+        // Автоматически обновляем год в подвале сайта.
+        currentYear.textContent = new Date().getFullYear();
+
+        // Поиск рецептов по названию и ключевым словам.
+        searchInput.addEventListener('input', function () {
+            const searchTerm = this.value
+                .toLocaleLowerCase('ru')
+                .trim();
+
+            let visibleCount = 0;
+
+            recipeCards.forEach(function (card) {
+                const title = card.dataset.title.toLocaleLowerCase('ru');
+                const heading = card.querySelector('h2')
+                    .textContent.toLocaleLowerCase('ru');
+                const description = card.querySelector('p')
+                    .textContent.toLocaleLowerCase('ru');
+
+                const searchableText =
+                    title + ' ' + heading + ' ' + description;
+
+                const matches = searchableText.includes(searchTerm);
+
+                card.hidden = !matches;
+
+                if (matches) {
+                    visibleCount++;
+                }
+            });
+
+            noResults.hidden = visibleCount !== 0;
         });
-
-        if (!hasVisible && searchTerm !== '') {
-            noResults.style.display = 'block';
-        } else {
-            noResults.style.display = 'none';
-        }
-    });
-</script>
-
+    </script>
 </body>
 </html>
