@@ -1,36 +1,287 @@
-# 🍩 Домашние пончики с сахарной пудрой
 
-**Выход:** около 30 штук  
-**Приготовление:** около 1–2 часов, в зависимости от подъёма теста  
-**Способ приготовления:** жарка во фритюре
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-## Ингредиенты
+    <title>Пончики с сахарной пудрой</title>
 
-- Мука — 500 г
-- Тёплое молоко — 310 гр
-- Сухие дрожжи — 6 г
-- Сахар — 60 г можно меньше например 40
-- Яйцо — 1 шт.
-- Сливочное масло — 30г
-- Соль — 6 ч. л.
-- Растительное масло — для жарки
-- Сахарная пудра — для посыпки
+    <meta name="description"
+          content="Рецепт домашних пончиков во фритюре с сахарной пудрой.">
 
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #fdf6e3;
+            color: #333;
+            line-height: 1.6;
+        }
 
-## Приготовление
+        h1 {
+            color: #d35400;
+            line-height: 1.3;
+        }
 
-1 Смешиваем все кроме масла его добавим в самом конце
-2
+        h2 {
+            color: #d35400;
+            margin-top: 0;
+        }
 
-## Подача
+        .hero-image {
+            display: block;
+            width: 100%;
+            max-height: 450px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 15px 0;
+        }
 
-Подавай пончики свежими, с чаем, кофе или молоком.
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #d35400;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-## Хранение
+        .back-link:hover {
+            text-decoration: underline;
+        }
 
-Полностью остывшие пончики храни в закрытом контейнере при комнатной температуре. На следующий день они могут стать менее пышными.
+        .description {
+            color: #666;
+            margin: 12px 0 20px;
+        }
 
----
+        .info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 22px;
+        }
 
-[← Назад ко всем рецептам](index.html)
+        .info span {
+            background: #fff0d5;
+            color: #a84300;
+            padding: 8px 13px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+        }
+
+        .ingredients,
+        .steps,
+        .tips {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        ul,
+        ol {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .ingredient-group {
+            margin-bottom: 18px;
+            background-color: #fff8e7;
+            padding: 14px 16px;
+            border-radius: 8px;
+            border-left: 4px solid #f39c12;
+        }
+
+        .ingredient-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .ingredient-group h3 {
+            margin: 0 0 8px;
+            color: #e67e22;
+            font-size: 1.1rem;
+        }
+
+        .ingredient-group ul {
+            margin: 0;
+            padding-left: 22px;
+        }
+
+        .warning {
+            background: #fff3e0;
+            border-left: 4px solid #e67e22;
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                margin: 10px auto;
+                padding: 15px;
+            }
+
+            .ingredients,
+            .steps,
+            .tips {
+                padding: 17px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="index.html" class="back-link">
+        ← Назад ко всем рецептам
+    </a>
+
+    <h1>🍩 пончики с сахарной пудрой</h1>
+
+    <p class="description">
+        Золотистые, мягкие внутри и посыпанные сахарной пудрой.
+        Домашние пончики, приготовленные во фритюре.
+    </p>
+
+    <img
+        class="hero-image"
+        src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=1000"
+        alt="Домашние пончики"
+    >
+
+    <div class="info">
+        <span>🍩 Выход: около 30 штук</span>
+        <span>⏱️ Время: около 1–2 часов</span>
+        <span>🍳 Способ: фритюр</span>
+    </div>
+
+    <div class="ingredients">
+        <h2>🛒 Ингредиенты</h2>
+
+        <p>
+            Это примерный вариант рецепта дрожжевых пончиков.
+            Если ты использовал другие пропорции, замени их на свои.
+        </p>
+
+        <div class="ingredient-group">
+            <h3>Для теста</h3>
+            <ul>
+                <li>Мука — 500 г</li>
+                <li>Молоко — 310 мл</li>
+                <li>Сухие дрожжи — 6 г</li>
+                <li>Сахар — 60 можно меньше я добавил 40 г</li>
+                <li>Яйцо — 1 шт.</li>
+                <li>Сливочное масло — 30 г</li>
+                <li>Соль — 6 чайной ложки</li>
+            </ul>
+        </div>
+
+        <div class="ingredient-group">
+            <h3>Для жарки</h3>
+            <ul>
+                <li>Растительное масло без сильного запаха — достаточное количество для фритюра</li>
+            </ul>
+        </div>
+
+        <div class="ingredient-group">
+            <h3>Для посыпки</h3>
+            <ul>
+                <li>Сахарная пудра — по вкусу</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="steps">
+        <h2>👨‍🍳 Приготовление</h2>
+
+        <ol>
+            <li>
+                <strong>Подготовь дрожжи.</strong>
+                Смешай тёплое молоко, дрожжи и немного сахара.
+                При необходимости подожди 5–10 минут согласно
+                инструкции на упаковке дрожжей.
+            </li>
+
+            <li>
+                <strong>Замеси тесто.</strong>
+                Добавь яйцо, оставшийся сахар, соль, мягкое
+                сливочное масло и муку. Замеси мягкое,
+                эластичное тесто.
+            </li>
+
+            <li>
+                <strong>Оставь тесто подниматься.</strong>
+                Накрой миску и оставь в тёплом месте примерно
+                на час, пока тесто не увеличится в объёме.
+            </li>
+
+            <li>
+                <strong>Сформируй пончики.</strong>
+                Раскатай тесто и вырежи пончики формочкой
+                или стаканом. Можно также сформировать шарики.
+            </li>
+
+            <li>
+                <strong>Дай заготовкам расстояться.</strong>
+                Оставь их на 20–30 минут под чистым полотенцем.
+            </li>
+
+            <li>
+                <strong>Разогрей масло.</strong>
+                Поддерживай температуру примерно 170–175 °C.
+                Не переполняй кастрюлю или фритюрницу.
+            </li>
+
+            <li>
+                <strong>Обжарь пончики.</strong>
+                Жарь небольшими партиями до золотистого цвета,
+                переворачивая при необходимости. Следи,
+                чтобы середина успела приготовиться.
+            </li>
+
+            <li>
+                <strong>Добавь сахарную пудру.</strong>
+                Выложи готовые пончики на решётку или бумажные
+                полотенца. Дай им немного остыть и посыпь пудрой.
+            </li>
+        </ol>
+
+        <div class="warning">
+            <strong>⚠️ Осторожно с горячим маслом!</strong>
+            Не допускай попадания воды в масло, не оставляй
+            фритюр без присмотра и не заполняй ёмкость доверху.
+        </div>
+    </div>
+
+    <div class="tips">
+        <h2>💡 Советы</h2>
+
+        <ul>
+            <li>Не перегревай масло: снаружи пончики могут потемнеть, пока внутри останутся сырыми.</li>
+            <li>Жарь небольшими партиями, чтобы температура масла сильно не падала.</li>
+            <li>Храни полностью остывшие пончики в закрытом контейнере при комнатной температуре.</li>
+        </ul>
+    </div>
+
+    <a href="index.html" class="back-link">
+        ← Назад ко всем рецептам
+    </a>
+
+</body>
+</html>
